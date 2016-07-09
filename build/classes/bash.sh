@@ -1,8 +1,0 @@
-#!/bin/sh
-
-
-PACKAGE_NAME="TestFrameNew"
-PACKAGE_VERSION="0.1"
-SOURCE_DIR=$PWD
-TEMP_DIR="/tmp"
-
