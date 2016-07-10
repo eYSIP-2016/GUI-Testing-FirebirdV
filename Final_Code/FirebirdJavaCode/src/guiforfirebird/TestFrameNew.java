@@ -345,9 +345,17 @@ public class TestFrameNew extends JFrame implements ComponentListener, ActionLis
         p2A1();
         p2A2();
         p2A3();
-        System.out.println("Height: "+ screenSize.height * 0.85 + "width:" + screenSize.width * 0.80);
+        System.out.println("Height: "+ screenSize.height + "width:" + screenSize.width);
         Dimension pSize = new Dimension((int) (screenSize.width * 0.80), (int) (screenSize.height * 0.85));
-        setSize(screenSize.width, screenSize.height);
+        if(screenSize.width < 1300)
+            setSize(screenSize.width, screenSize.height);
+        else
+            setSize(1366, 768);
+        if(screenSize.width < 1100)
+            setMinimumSize(new Dimension(screenSize.width,screenSize.height));
+        else
+            setMinimumSize(new Dimension(1100, 660));
+       
         setMinimumSize(pSize);
         setMaximumSize(new Dimension((int) (screenSize.width), (int) (screenSize.height)));
         addComponentListener(this);
@@ -1215,6 +1223,7 @@ public class TestFrameNew extends JFrame implements ComponentListener, ActionLis
 
         if (e.getSource() == programButton) {
             try {
+                System.out.println("system name:" + System.getProperty("user.home"));
                 String port_id = null;
                  if(selectedFileField.getText().isEmpty())
                 {
@@ -1572,42 +1581,42 @@ public class TestFrameNew extends JFrame implements ComponentListener, ActionLis
                                 int tempvalue = value;
                                 if (count1 == 1) {
                                     System.out.println("IR Sensor 1 " + tempvalue);
-                                    jLabelIRSensor1.setText(input+ "mm");
+                                    jLabelIRSensor1.setText(input);
                                     jProgressBarIRSensor1.setValue(tempvalue);
                                     count1++;
                                 } else if (count1 == 2) {
                                     System.out.println("IR Sensor 2 " + tempvalue);
-                                    jLabelIRSensor2.setText(input+ "mm");
+                                    jLabelIRSensor2.setText(input);
                                     jProgressBarIRSensor2.setValue(tempvalue);
                                     count1++;
                                 } else if (count1 == 3) {
                                     System.out.println(input);
-                                    jLabelIRSensor3.setText(input+ "mm");
+                                    jLabelIRSensor3.setText(input);
                                     jProgressBarIRSensor3.setValue(tempvalue);
                                     count1++;
                                 } else if (count1 == 4) {
                                     System.out.println(input);
-                                    jLabelIRSensor4.setText(input+ "mm");
+                                    jLabelIRSensor4.setText(input);
                                     jProgressBarIRSensor4.setValue(tempvalue);
                                     count1++;
                                 } else if (count1 == 5) {
                                     System.out.println(input);
-                                    jLabelIRSensor5.setText(input+ "mm");
+                                    jLabelIRSensor5.setText(input);
                                     jProgressBarIRSensor5.setValue(tempvalue);
                                     count1++;
                                 } else if (count1 == 6) {
                                     System.out.println(input);
-                                    jLabelIRSensor6.setText(input+ "mm");
+                                    jLabelIRSensor6.setText(input);
                                     jProgressBarIRSensor6.setValue(tempvalue);
                                     count1++;
                                 } else if (count1 == 7) {
                                     System.out.println(input);
-                                    jLabelIRSensor7.setText(input+ "mm");
+                                    jLabelIRSensor7.setText(input);
                                     jProgressBarIRSensor7.setValue(tempvalue);
                                     count1++;
                                 } else if (count1 == 8) {
                                     System.out.println(input);
-                                    jLabelIRSensor8.setText(input+ "mm");
+                                    jLabelIRSensor8.setText(input);
                                     jProgressBarIRSensor8.setValue(tempvalue);
                                     count1++;
                                 } else if (count1 == 9) {
@@ -1665,7 +1674,7 @@ public class TestFrameNew extends JFrame implements ComponentListener, ActionLis
                                     System.out.println("Battery " + tempvalue);
                                     value2 = (float) (((((tempvalue) * 100) * 0.07902) + 0.7) / 100);
                                     input = String.valueOf(value2);
-                                    jLabelVoltage.setText("   " + input + "V");
+                                    jLabelVoltage.setText("   " + input + " V");
                                     jProgressBarBatteryVoltage.setValue((int) value2);
                                     count1++;
                                 }
